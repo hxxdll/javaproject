@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.*;
 public class SystemMain {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, ClassNotFoundException {
 		Scanner scan = new Scanner (System.in);
 		int input =0;
 		System.out.println("아이디를 입력하세요.");
@@ -22,7 +22,7 @@ public class SystemMain {
 			switch (input) {
 			case 1 : System.out.println("시스템을 종료합니다"); break;
 			case 2 :  MyCalendar.printcalendar(userID);	break;
-			case 3 : 	AddEvent.addEvent(userID); break;
+			case 3 : AddEvent.addEvent(userID); break;
 			case 4 : 	break;
 			case 5 : 	break;
 			case 6 : 	break;
