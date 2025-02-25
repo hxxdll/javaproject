@@ -23,7 +23,7 @@ public class SystemMain {
 			case 1 : System.out.println("시스템을 종료합니다"); break;
 			case 2 :  MyCalendar.printcalendar(userID);	break;
 			case 3 : AddEvent.addEvent(userID); break;
-			case 4 : 	break;
+			case 4 : EventCheck.eventCheck(userID);	break;
 			case 5 : 	break;
 			case 6 : 	break;
 			default : System.out.println("올바른 숫자를 입력하세요.");

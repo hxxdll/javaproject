@@ -20,7 +20,7 @@ public class AddEvent {
 		Date startday =null;
 		while(true) {
 			System.out.print("이벤트 시작 시간을 입력하세요 (yyyy/MM/dd HH:mm:ss)>>");
-			SimpleDateFormat sf2 = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+			SimpleDateFormat sf2 = new SimpleDateFormat("yyyy/MM/dd");
 			String StartDate = scan.nextLine();
 			try {
 				startday=sf2.parse(StartDate);
@@ -35,7 +35,7 @@ public class AddEvent {
 		Date lastday =null;
 		while(true) {
 			System.out.print("이벤트 종료 시간을 입력하세요 (yyyy/MM/dd HH:mm:ss)>>");
-			SimpleDateFormat sf2 = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+			SimpleDateFormat sf2 = new SimpleDateFormat("yyyy/MM/dd");
 			String lastDate = scan.nextLine();
 			try {
 				lastday=sf2.parse(lastDate);
@@ -49,9 +49,11 @@ public class AddEvent {
 		System.out.print("세부사항을 입력하세요>>");
 		String detail = scan.next();
 		
+		///////////////////////////////////////////////////////////////////////
+		
 		Map<String, Event> eventList = new HashMap<>();
 		Event evl = new Event(title,startday,lastday,detail);
-		eventList.put(title, evl);
+		eventList.put(evl.title, evl);
 		
 		FileOutputStream fos = new FileOutputStream(userID+".txt",true);
 		ObjectOutputStream oos = new ObjectOutputStream(fos);
