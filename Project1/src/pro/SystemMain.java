@@ -1,11 +1,19 @@
 package pro;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.*;
 public class SystemMain {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		Scanner scan = new Scanner (System.in);
 		int input =0;
+		System.out.println("아이디를 입력하세요.");
+		String userID= scan.next();
+		File file = new File(userID + ".txt"); 
+		if(! file.exists()) idMaker.whatisID();
+		
+		
 		while (input!=1) {
 		try {
 			System.out.print("메뉴 번호를 선택하시오 (1.종료,2.달력조회,3.이벤트추가,4.이벤트조회,5.이벤트변경,6.이벤트삭제)>>");
