@@ -3,7 +3,7 @@ import java.util.Calendar;
 import java.util.Scanner;
 
 public class MyCalendar  {
-	 public static void printcalendar() {
+	 public static void printcalendar(String userID) {
 		
 	Scanner scan = new Scanner(System.in);
 	System.out.println("년도와 월을 입력하세요");
