@@ -1,14 +1,9 @@
 package pro;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.*;
-import java.io.ObjectOutputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.*;
-import java.util.Scanner;
 
 public class AddEvent {
 	static void addEvent(String userID) throws IOException, ClassNotFoundException {
@@ -52,12 +47,26 @@ public class AddEvent {
 		///////////////////////////////////////////////////////////////////////
 		
 		Map<String, Event> eventList = new HashMap<>();
+		try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(userID + ".txt"))) {
+		    while (true) {
+		        try {
+		            Map<String, Event> temp = (Map<String, Event>) ois.readObject();
+		            System.out.println(temp);
+		            eventList.putAll(temp);  // 기존 eventList에 추가
+		        } catch (EOFException e) {  // 파일 끝나면 반복문 종료
+		            break;
+		        }
+		    }
+		} catch (IOException | ClassNotFoundException e) {
+		    e.printStackTrace();
+		}
+		
 		Event evl = new Event(title,startday,lastday,detail);
 		eventList.put(evl.title, evl);
 		
-		FileOutputStream fos = new FileOutputStream(userID+".txt",true);
+		FileOutputStream fos = new FileOutputStream(userID+".txt");
 		ObjectOutputStream oos = new ObjectOutputStream(fos);
-		//OutputStreamWriter writer = new OutputStreamWriter(oos,"UTF-8");
+		System.out.println("추가: "+eventList);
 		oos.writeObject(eventList); 
 		
          

@@ -12,6 +12,7 @@ public class EventCheck {
 			    while (true) {
 			        try {
 			            Map<String, Event> temp = (Map<String, Event>) ois.readObject();
+			            System.out.println(temp);
 			            eventList.putAll(temp);  // 기존 eventList에 추가
 			        } catch (EOFException e) {  // 파일 끝나면 반복문 종료
 			            break;
