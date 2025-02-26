@@ -6,9 +6,10 @@ import java.text.SimpleDateFormat;
 
 public class EventCheck {
 	public static void eventCheck(String userID) throws IOException, ClassNotFoundException {
-		try {
-			Map<String , Event> eventList = new HashMap<>();
+		
+			
 			try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(userID + ".txt"))) {
+				Map<String , Event> eventList = new HashMap<>();
 			    while (true) {
 			        try {
 			            Map<String, Event> temp = (Map<String, Event>) ois.readObject();
@@ -17,9 +18,7 @@ public class EventCheck {
 			            break;
 			        }
 			    }
-			} catch (IOException | ClassNotFoundException e) {
-			    e.printStackTrace();
-			}
+			
 			
 			Scanner scan = new Scanner (System.in);
 			Date day = null;
@@ -48,10 +47,11 @@ public class EventCheck {
 				}
 			}
 			if(cnt==0)System.out.println("해당 날짜에 이벤트가 없습니다.");
-
-		}catch(Exception e) {
-			System.out.println("조회할 일정이 없습니다.");
-		}
+			
+			} catch (  ClassNotFoundException |EOFException e) {
+			    System.out.println("조회 할 일정이 없습니다.");
+			}
+		
 		
 	}
 	

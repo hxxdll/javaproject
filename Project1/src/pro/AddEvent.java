@@ -34,10 +34,13 @@ public class AddEvent {
 			String lastDate = scan.nextLine();
 			try {
 				lastday=sf2.parse(lastDate);
-				break;
 			} catch (ParseException e) {
 				System.out.println("날짜의 형식이 올바르지 않습니다.");
 			}
+			if(startday.getTime()>lastday.getTime()) {
+				System.out.println("종료 날짜가 시작 날짜보다 빠릅니다");
+			}
+			else break;
 		}
 		
 		
@@ -78,7 +81,7 @@ class Event implements Serializable {
 	private static final long serialVersionUID = 1L;
 	String title,detail;
 	Date lastday,startday;
-	SimpleDateFormat sf= new SimpleDateFormat("yyyy/MM/dd");
+	
 	Event(String title, Date startday, Date lastday, String detail){
 		
 		this.title=title;
@@ -100,10 +103,12 @@ class Event implements Serializable {
 	}
 
 	public String getLastday() {
+		SimpleDateFormat sf= new SimpleDateFormat("yyyy/MM/dd");
 		return sf.format(lastday);
 	}
 
 	public String getStartday() {
+		SimpleDateFormat sf= new SimpleDateFormat("yyyy/MM/dd");
 		return sf.format(startday);
 	}
 
