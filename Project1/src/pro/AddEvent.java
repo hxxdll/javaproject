@@ -36,7 +36,7 @@ public class AddEvent {
 				lastday=sf2.parse(lastDate);
 				break;
 			} catch (ParseException e) {
-				e.printStackTrace();
+				System.out.println("날짜의 형식이 올바르지 않습니다.");
 			}
 		}
 		
@@ -58,7 +58,7 @@ public class AddEvent {
 		        }
 		    }
 		} catch (IOException | ClassNotFoundException e) {
-		    e.printStackTrace();
+		   
 		}
 		
 		Event evl = new Event(title,startday,lastday,detail);
@@ -66,7 +66,7 @@ public class AddEvent {
 		
 		FileOutputStream fos = new FileOutputStream(userID+".txt");
 		ObjectOutputStream oos = new ObjectOutputStream(fos);
-		System.out.println("추가: "+eventList);
+		System.out.println(evl.title+"이 추가되었습니다.");
 		oos.writeObject(eventList); 
 		
          
@@ -78,14 +78,36 @@ class Event implements Serializable {
 	private static final long serialVersionUID = 1L;
 	String title,detail;
 	Date lastday,startday;
+	SimpleDateFormat sf= new SimpleDateFormat("yyyy/MM/dd");
 	Event(String title, Date startday, Date lastday, String detail){
+		
 		this.title=title;
 		this.startday=startday;
 		this.lastday=lastday;
 		this.detail=detail;
 	}
-	
-	   public String toString() {
+		
+	   public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public String getDetail() {
+		return detail;
+	}
+
+	public String getLastday() {
+		return sf.format(lastday);
+	}
+
+	public String getStartday() {
+		return sf.format(startday);
+	}
+
+	public String toString() {
 	        SimpleDateFormat sf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 	        return "이벤트 제목: " + title +
 	               "\n시작 시간: " + sf.format(startday) +

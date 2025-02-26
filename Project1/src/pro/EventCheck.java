@@ -12,7 +12,6 @@ public class EventCheck {
 			    while (true) {
 			        try {
 			            Map<String, Event> temp = (Map<String, Event>) ois.readObject();
-			            System.out.println(temp);
 			            eventList.putAll(temp);  // 기존 eventList에 추가
 			        } catch (EOFException e) {  // 파일 끝나면 반복문 종료
 			            break;
@@ -41,13 +40,13 @@ public class EventCheck {
 			
 			for(String s :eventList.keySet()) {
 				Event ev =eventList.get(s);
-//				if(ev.startday.equals(day)) {
+				if(ev.startday.equals(day)) {
 					System.out.println("[제목]:"+ev.title);
-					System.out.println("[기간]: "+ev.startday+"~"+ev.lastday);
+					System.out.println("[기간]: "+ev.getStartday()+"~"+ev.getLastday());
 					System.out.println("[세부사항]:"+ev.detail);
 					cnt++;
 				}
-		//	}
+			}
 			if(cnt==0)System.out.println("해당 날짜에 이벤트가 없습니다.");
 
 		}catch(Exception e) {
