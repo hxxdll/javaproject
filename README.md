@@ -7,7 +7,7 @@
 -----------
 ### 기능소개
 + **실행화면 1**
-<img src = "https://github.com/user-attachments/assets/1546d964-649d-4c9c-a50f-19a916de77c6" width = "800" height="400"/>
+<img src = "https://github.com/user-attachments/assets/1546d964-649d-4c9c-a50f-19a916de77c6" width = "1000" height="400"/>
 
 
 > **1 .사용자 아이디를 입력**
