@@ -17,8 +17,6 @@
 
 
 2. **이벤트 추가**
-
-
 +이벤트 제목, 이벤트 시작시간, 이벤트 종료시간, 세부사항 입력
 <img src = "https://github.com/user-attachments/assets/1ade8339-2bf4-4b03-a8f6-b453c4162427" width = "1000" height="600"/>
 
