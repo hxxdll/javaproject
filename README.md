@@ -14,8 +14,6 @@
 
 
 +이미 존재하는 아이디를 입력할 시 메뉴선택화면으로 넘어간다.
-<img src = "https://github.com/user-attachments/assets/a745e6e1-9ee6-4dc1-92c1-e1e816f25afc" width = "1000" height="600"/>
-
 
 2. **3. 이벤트 추가**
 +이벤트 제목, 이벤트 시작시간, 이벤트 종료시간, 세부사항 입력
