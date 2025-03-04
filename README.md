@@ -10,7 +10,7 @@
 
 1. **1 .사용자 아이디를 입력**
 +만약 사용자 아이디가 존재하지 않는다면, 아이디를 만들도록 문구가 뜬다.
-<img src = "https://github.com/user-attachments/assets/4a301475-8f44-491d-87ee-feec0f48ccfd" width = "1000" height="600"/>
+<img src = "https://github.com/user-attachments/assets/70a05f0d-9925-4b1c-9212-34beee27c4ff" width = "1000" height="600"/>
 
 
 +이미 존재하는 아이디를 입력할 시 메뉴선택화면으로 넘어간다.
